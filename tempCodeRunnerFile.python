@@ -1,29 +1,16 @@
 import numpy as np
+from numpy import linalg
 
-def substituicao_regressiva(A, b):
-    n = len(b)
-    x = np.zeros(n)
+a = np.array([[5,3],[3,2]])
+print(a)
+print()
 
-    for i in range(n - 1, -1, -1):
-        soma = np.dot(A[i, i+1:], x[i+1:])
-        x[i] = (b[i] - soma) / A[i, i]
+a = linalg.matrix_power(a, 0)
+print(a)
+print()
 
-    return x
-
-
-def main():
-    A = np.array([
-        [2, 3, -1],
-        [0, 4,  2],
-        [0, 0,  5]
-    ], dtype=float)
-
-    b = np.array([5, 10, 15], dtype=float)
-
-    x = substituicao_regressiva(A, b)
-
-    print("Solução:")
-    print(x)
-
-if __name__ == "__main__":
-    main()
+a = linalg.matrix_power(a, 2)
+print(a)
+print()
+q = linalg.inv(a)
+print(q)
