@@ -10,10 +10,9 @@ def substituicao_regressiva(A, b):
 
     return x
 
-
 def main():
 
-    A = np.array([
+    a = np.array([
         [1, 1, -1],
         [0, 1,  -5/2],
         [0, 0,  5/2]
@@ -21,7 +20,7 @@ def main():
 
     b = np.array([2, -1, -8], dtype=float)
 
-    x = substituicao_regressiva(A, b)
+    x = substituicao_regressiva(a, b)
 
     print("Solução:")
     print(f"x = {x[0]:.1f}")
