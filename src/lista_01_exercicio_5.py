@@ -1,11 +1,25 @@
+from typing import Tuple
+
 import numpy as np
 import matplotlib.pyplot as plt
 
-L1 = 20.0
-L2 = 15.0
+L1: float = 20.0
+L2: float = 15.0
 
 
-def calcular_posicoes(theta1, theta2):
+def calcular_posicoes(
+    theta1: float,
+    theta2: float
+) -> Tuple[float, float, float, float]:
+    """Calcular posições dos elos de um manipulador robótico 2D.
+    
+    Args:
+        theta1: Ângulo do primeiro elo em graus
+        theta2: Ângulo do segundo elo em graus
+        
+    Returns:
+        Tuple com (x_l1, y_l1, x_u, y_u) - posições dos elos e efetuador
+    """
     # Converte os angulos de graus para radianos.
     theta1 = np.radians(theta1)
     theta2 = np.radians(theta2)
@@ -26,8 +40,22 @@ def calcular_posicoes(theta1, theta2):
     return x_l1, y_l1, x_u, y_u
 
 
-def mostrar_grafico(theta1, theta2, x_l1, y_l1, x_u, y_u):
-
+def mostrar_grafico(
+    theta1: float,
+    theta2: float,
+    x_l1: float,
+    y_l1: float,
+    x_u: float,
+    y_u: float
+) -> None:
+    """Visualizar a configuração do manipulador robótico.
+    
+    Args:
+        theta1: Ângulo do primeiro elo em graus
+        theta2: Ângulo do segundo elo em graus
+        x_l1, y_l1: Posição da extremidade do elo 1
+        x_u, y_u: Posição final do efetuador
+    """
     x0, y0 = 0.0, 0.0 #origem
 
     figura, grafico = plt.subplots(figsize=(8, 8))
@@ -71,8 +99,8 @@ def mostrar_grafico(theta1, theta2, x_l1, y_l1, x_u, y_u):
     plt.show()
 
 
-def main():
-
+def main() -> None:
+    """Programa principal para cálculo e visualização do manipulador robótico."""
     try:
         theta1 = float(input(
             "Digite o angulo theta1 em graus: "

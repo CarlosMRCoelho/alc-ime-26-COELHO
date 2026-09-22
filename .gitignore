@@ -1,1 +1,18 @@
-tempCodeRunnerFile.python
+# Arquivo temporário do VS Code
+tempCodeRunnerFile.*
+*.py.bak
+
+# IDE
+.vscode/launch.json
+.idea/
+.DS_Store
+
+# Pycache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/

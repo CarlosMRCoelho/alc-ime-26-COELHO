@@ -1,10 +1,24 @@
+from typing import Tuple
+
 import numpy as np
 
-L1 = 20.0
-L2 = 15.0
+L1: float = 20.0
+L2: float = 15.0
 
 
-def calcular_posicoes(theta1, theta2):
+def calcular_posicoes(
+    theta1: float,
+    theta2: float
+) -> Tuple[float, float]:
+    """Calcular posição final do efetuador.
+    
+    Args:
+        theta1: Ângulo do primeiro elo em graus
+        theta2: Ângulo do segundo elo em graus
+        
+    Returns:
+        Tuple com (x_u, y_u) - posição do efetuador
+    """
     # Converte os angulos de graus para radianos.
     theta1 = np.radians(theta1)
     theta2 = np.radians(theta2)
@@ -24,7 +38,8 @@ def calcular_posicoes(theta1, theta2):
 
     return x_u, y_u
 
-def main():
+def main() -> None:
+    """Programa principal para cálculo da posição do manipulador robótico."""
 
     try:
         theta1 = float(input(

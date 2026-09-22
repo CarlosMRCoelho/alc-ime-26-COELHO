@@ -1,7 +1,13 @@
+from typing import Union
+
 import numpy as np
+from numpy.typing import NDArray
 
 
-def back_substitution(U, b):
+def back_substitution(
+    U: Union[NDArray, list, tuple],
+    b: Union[NDArray, list, tuple]
+) -> NDArray:
     """Solve U x = b for x where U is upper-triangular.
 
     Parameters

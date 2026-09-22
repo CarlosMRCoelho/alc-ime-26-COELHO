@@ -1,6 +1,22 @@
-import numpy as np
+from typing import Union
 
-def substituicao_regressiva(A, b):
+import numpy as np
+from numpy.typing import NDArray
+
+
+def substituicao_regressiva(
+    A: Union[NDArray, list, tuple],
+    b: Union[NDArray, list, tuple]
+) -> NDArray:
+    """Realizar substituição regressiva para resolver sistema triangular superior.
+    
+    Args:
+        A: Matriz triangular superior (numpy array ou similar)
+        b: Vetor de termos independentes
+        
+    Returns:
+        NDArray: Solução do sistema
+    """
     n = len(b) #pega tamanho do vetor b
     solucao = np.zeros(n) #cria um vetor de zeros para armazenar as soluções
 

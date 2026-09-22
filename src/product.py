@@ -1,7 +1,13 @@
+from typing import Union
+
 import numpy as np
+from numpy.typing import NDArray
 
 
-def matrix_product(A, B):
+def matrix_product(
+    A: Union[NDArray, list, tuple],
+    B: Union[NDArray, list, tuple]
+) -> NDArray:
     """Return the product of an m x n matrix and a p x q matrix."""
     A = np.asarray(A)
     B = np.asarray(B)
