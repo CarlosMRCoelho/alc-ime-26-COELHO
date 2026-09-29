@@ -12,33 +12,27 @@ def main():
         print("O valor de n deve ser maior que zero.")
         return
 
-    U = np.zeros(n)
-    V = np.zeros(n)
-
-    for i in range(n): # dois vetores de tamanho n
-        U[i] = i + 1
-        V[i] = U[i]**2
+    U = np.random.rand(n, 1)
+    V = np.random.rand(n, 1)       
 
     print(f"Vetor U: {U}\n")
     print(f"Vetor V: {V}\n")
 
-    A = U @ V.T
+    A = np.outer(U, V) # produto externo dos vetores U e V
     print(f"Matriz A (uvT): {A}\n")
 
     PostoA = np.linalg.matrix_rank(A)
     print(f"Posto da matriz A (uvT): {PostoA}")
 
-    NulidadeA = A.size - PostoA
+    NulidadeA = n - PostoA
     print(f"Nulidade da matriz A (n-PostoA): {NulidadeA}")
 
-    Norma2U = np.linalg.norm(U)
-    print(f"Norma do vetor U: {Norma2U}")
+    Norma2U = np.linalg.norm(U, 2)
+    Norma2V = np.linalg.norm(V, 2)
+    print(f"Norma2 do vetor U x Norma2 do vetor V: {Norma2U * Norma2V:.4f}")
 
-    Norma2V = np.linalg.norm(V)
-    print(f"Norma do vetor V: {Norma2V}")
-
-    Norma2A = np.linalg.norm(A)
-    print(f"Norma da matriz A: {Norma2A}")
+    Norma2A = np.linalg.norm(A, 2)
+    print(f"Norma da matriz A: {Norma2A:.4f}")
 
 if __name__ == "__main__":
     main()
